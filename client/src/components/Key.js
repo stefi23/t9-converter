@@ -2,9 +2,7 @@ import React from "react";
 
 function Key(props) {
 
-    const getKey = (e) => {
-        console.log(e.code)
-    }
+
     return (
         <>
         <button onClick={props.addUserInput} >
