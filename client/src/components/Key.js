@@ -3,7 +3,7 @@ import React from "react";
 function Key(props) {
     return (
         <>
-        <button disabled={props.disabled} onClick={props.value=== "#" ? props.deleteUserInput : props.addUserInput} >
+        <button className="phone-button" disabled={props.disabled} onClick={props.value=== "#" ? props.deleteUserInput : props.addUserInput} >
             <p>{props.value}</p>
             <p>{props.letters}</p>
         </button>

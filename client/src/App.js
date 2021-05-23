@@ -53,14 +53,16 @@ const getSuggestions = async () => {
     <div className="App">
       <h1> T9 Converter</h1>
       <p>Description and usage</p>
+
       <div className="phone-container">
+        <div className="phone-antenna"></div>
         <div className="phone-container__screen">
-          <p>User input: {userInput}</p>
-          <p>Predictions: 
+          <p className="phone-container__screen_user-input">{userInput}</p>
+          <p className="phone-container__screen_predictions"> 
           {
           suggestions.length > 0 ?
           suggestions.map((suggestion, index) => (
-                    <span key={index}
+                    <span className= "phone-container__screen_predictions_prediction" key={index}
                         >   {suggestion}              
                     </span>
                   ))

@@ -1,17 +1,4 @@
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
+@import url("https://fonts.googleapis.com/css2?family=Quantico&display=swap");
 
 .App {
   margin: 0 auto;
@@ -26,6 +13,19 @@
   max-width: 80%;
   margin: 0 auto;
   border-radius: 10px;
+  position: relative;
+}
+
+.phone-antenna {
+  background: black;
+  height: 80px;
+  width: 30px;
+  margin: auto 0;
+  position: absolute;
+  right: 0px;
+  top: -60px;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
 }
 
 .phone-container__screen {
@@ -38,7 +38,6 @@
 
 .phone-container__keyboard {
   background: gainsboro;
-  min-height: 300px;
   padding: 1rem;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
@@ -52,4 +51,35 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 5px;
+}
+
+.phone-container__screen_predictions {
+  overflow: scroll;
+  max-height: 150px;
+  line-height: 1rem;
+}
+
+.phone-container__screen_user-input {
+  text-align: center;
+  font-size: 1.5rem;
+  font-family: "Quantico", sans-serif;
+}
+
+.phone-container__screen_predictions_prediction {
+  border: 1px solid purple;
+  border-radius: 30px;
+  background: gold;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  display: inline-block;
+}
+
+.phone-button {
+  cursor: pointer;
+  /* box-shadow: 2px 1px 2px gray; */
+}
+
+.phone-button:active {
+  box-shadow: 0 0 0 white;
+  transform: scale(0.96);
 }
