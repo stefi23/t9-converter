@@ -12,8 +12,17 @@ function App() {
     setUserInput(userInput + number.toString())
   }
 
+  const deleteUserInput = () => {
+    let updatedString = userInput.slice(0, -1)
+    setUserInput(updatedString)
+
+  }
+
 
  useEffect(() => {
+   if(userInput === "") {
+     setSuggestions(suggestions => [])
+   }
    if(userInput.length > 0) {
    (async () => {
       try {
@@ -74,7 +83,7 @@ const getSuggestions = async () => {
             <Key value="9" letters="wxyz" addUserInput={() => addUserInput("9")}/>
             <Key value="*" letters=" " disabled={true} />
             <Key value="0" letters=" " disabled={true}/>
-            <Key value="#" letters="del" disabled={true}/> 
+            <Key value="#" letters="del" deleteUserInput={deleteUserInput} /> 
           </div>
         </div>
       </div>
