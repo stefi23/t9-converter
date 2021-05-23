@@ -5,7 +5,7 @@ function Key(props) {
 
     return (
         <>
-        <button onClick={props.addUserInput} >
+        <button disabled={props.disabled} onClick={props.addUserInput} >
             <p>{props.value}</p>
             <p>{props.letters}</p>
         </button>
