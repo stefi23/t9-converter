@@ -18,6 +18,9 @@ function App() {
   const deleteUserInput = () => {
     let updatedString = userInput.slice(0, -1)
     setUserInput(updatedString)
+    if(userInput === ""){
+      setSuggestions(suggestions => [])
+    }
 
   }
 
