@@ -24,28 +24,21 @@ function App() {
      setSuggestions(suggestions => [])
    }
    if(userInput.length > 0) {
-   (async () => {
-      try {
-      let data = await getSuggestions()     
-      setSuggestions(suggestions => [...data ])
-    
-    } catch (err) {
-      // Handle Error Here
-      console.error(err);
-    }
-    })();
+      setTimeout(async function () {
+          try {
+          let data = await getSuggestions()     
+          setSuggestions(suggestions => [...data ])
+        
+        } catch (err) {
+          alert("500 ERROR! Try again please!")
+        }
+      }, 1000);
     }
   }, [userInput])
 
 const getSuggestions = async () => {
-    try {
       const resp = await axios.get(`/t9-suggestions?userInput=${userInput}`);
       return resp.data
-
-    } catch (err) {
-      // Handle Error Here
-      console.error(err);
-    }
   };
 
 
