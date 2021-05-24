@@ -53,10 +53,13 @@ const getSuggestions = async () => {
   return (
     <div className="App">
       <h1> T9 Converter</h1>
-      <p>Description and usage</p>
-
       <div className="phone-container">
         <div className="phone-antenna"></div>
+        <div className="phone-output">
+          <div className="phone-output-dot"></div>
+          <div className="phone-output-dot"></div>
+          <div className="phone-output-dot"></div>
+        </div>
         <div className="phone-container__screen">
           <p className="phone-container__screen_user-input">{userInput}</p>
           <p className="phone-container__screen_predictions"> 
