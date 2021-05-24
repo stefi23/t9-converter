@@ -21,7 +21,6 @@ function App() {
     if(userInput === ""){
       setSuggestions(suggestions => [])
     }
-
   }
 
 
