@@ -14,8 +14,10 @@ let letterCombinations = (digits) => {
   const letters = digits.split('').map(index => PhoneChart[index - 2])
   const digitLength = letters.length
   
-  if(digitLength <= 0) return []
-
+  if(digitLength <= 0) { 
+      return []
+  }
+  
   let rs = letters[0]
   for(let i = 1; i < digitLength; i++) {
     rs = [].concat(...letters[i].map(addon => rs.map(pre => pre + addon)))
