@@ -30,8 +30,12 @@ function App() {
           setSuggestions(suggestions => [...data ])
         
         } catch (err) {
+          if (err.response.status === 400) {
+          alert("Please check the input you've added. It has to be a number starting with 2")
+        }else{
           alert("500 ERROR! Try again please!")
         }
+      }
       }, 1000);
     }
   }, [userInput])
