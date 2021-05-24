@@ -1,11 +1,20 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
-function Key(props) {
+Key.propTypes = {
+    value: PropTypes.string.isRequired,
+    letters: PropTypes.string.isRequired,
+    disabled: PropTypes.bool,
+    addUserInput: PropTypes.func,
+    deleteUserInput: PropTypes.func,
+}
+
+function Key({value, letters, addUserInput, deleteUserInput, disabled }) {
     return (
         <>
-        <button className="phone-button" disabled={props.disabled} onClick={props.value=== "#" ? props.deleteUserInput : props.addUserInput} >
-            <p>{props.value}</p>
-            <p>{props.letters}</p>
+        <button className="phone-button" disabled={disabled} onClick={value=== "#" ? deleteUserInput : addUserInput} >
+            <p>{value}</p>
+            <p>{letters}</p>
         </button>
         </>
     )
