@@ -6,10 +6,13 @@ import Key from "./components/Key"
 function App() {
   const [ userInput, setUserInput ] = useState("")
   const [ suggestions, setSuggestions ] = useState([])
+  const [ isLoading, setIsLoading] = useState(false);
+
 
 
   const addUserInput = (number) => {
     setUserInput(userInput + number.toString())
+    setIsLoading(true)
   }
 
   const deleteUserInput = () => {
@@ -28,6 +31,7 @@ function App() {
           try {
           let data = await getSuggestions()     
           setSuggestions(suggestions => [...data ])
+          setIsLoading(false)
         
         } catch (err) {
           if (err.response.status === 400) {
@@ -56,14 +60,31 @@ const getSuggestions = async () => {
         <div className="phone-container__screen">
           <p className="phone-container__screen_user-input">{userInput}</p>
           <p className="phone-container__screen_predictions"> 
+          
           {
-          suggestions.length > 0 ?
-          suggestions.map((suggestion, index) => (
-                    <span className= "phone-container__screen_predictions_prediction" key={index}
-                        >   {suggestion}              
-                    </span>
-                  ))
-           : null     
+            isLoading ? 
+              
+                <div id="loading" class="loader">
+                    <div id="ball-container-1" class="ball-container">
+                        <div id="ball-1" class="ball"></div>
+                    </div>
+                    <div id="ball-container-2" class="ball-container">
+                        <div id="ball-2" class="ball"></div>
+                    </div>
+                    <div id="ball-container-3" class="ball-container">
+                        <div id="ball-3" class="ball"></div>
+                    </div>
+                </div> 
+              
+              :
+              
+              suggestions.length > 0 ?
+              suggestions.map((suggestion, index) => (
+                        <span className= "phone-container__screen_predictions_prediction" key={index}
+                            >   {suggestion}              
+                        </span>
+                      ))
+              : null     
                 
           }
         </p>
